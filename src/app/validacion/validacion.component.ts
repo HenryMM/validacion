@@ -52,8 +52,10 @@ export class ValidacionComponent implements OnInit {
 
   validarPrecio(value){
 
-    //El rango superior no puede ser menor al rango inferior
-    if(value.rangoSuperior<=value.rangoInferior){
+    if(value.rangoSuperior<0||value.rangoInferior<0||value.precio<0){
+      console.log("CERO");
+      this.estado='ESCERO';
+    }else if(value.rangoSuperior<=value.rangoInferior){
       this.estado='ERROR';
     }else{
       if(value.precio>=value.rangoSuperior){
@@ -65,7 +67,7 @@ export class ValidacionComponent implements OnInit {
        }
     }
 
-  console.log("validarPrecio");
+  
 
     
   }

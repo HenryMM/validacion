@@ -17,14 +17,15 @@
                                     <strong *ngIf="estado=='ALTO'">ALTO</strong>
                                     <strong *ngIf="estado=='MEDIO'">MEDIO</strong>
                                     <strong *ngIf="estado=='BAJO'">BAJO</strong>
-                                    <strong *ngIf="estado=='ERROR'">Advertencia, el Rango superior no puede ser menor o igual 
+                                    <strong *ngIf="estado=='ESCERO'">Los parametros o el precio no pueden ser menor a cero.</strong>
+                                    <strong *ngIf="estado=='ERROR'">El Rango superior no puede ser menor o igual 
                                         al rango inferior</strong>
                                 </div>
                                 <div class="row justify-content-center">
                                     <div class="col-md-4 text-center">
                                         <div class="md-form mb-0">
-                                            <label for="precio">Ingrese el precio</label>
-                                            <input id="precio" class="form-control" type="number"
+                                            <label for="precio" class="validate">Ingrese el precio</label>
+                                            <input id="precio" class="form-control validate" type="number"
                                                 formControlName="precio" required>
                                         </div>
                                     </div>
@@ -38,7 +39,7 @@
                                 <hr>
                                 <div class="row justify-content-center">
                                     <div class="col-md-12 text-center">
-                                        <h4>Parametros para el cálculo</h4>
+                                        <h4>Parámetros para el cálculo</h4>
                                     </div>
                                 </div>
                                 <br>
