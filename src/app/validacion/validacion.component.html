@@ -1,0 +1,82 @@
+<br>
+<div class="gx-wrapper">
+    <div class="dashboard animated slideInUpTiny animation-duration-3">
+        <div class="contenedor-card">
+            <div class="row mb-md-4">
+                <div class="offset-md-3 col-md-6">
+                    <div class="shadow border-0 card mi-card-shadow">
+                        <div class="card-header bg-primary text-white text-center">
+                            <h2>VALIDAR PRECIO</h2>
+                        </div>
+                        <div class="card-body">
+
+                            <form [formGroup]="form" (ngSubmit)="save($event)">
+
+                                <div *ngIf="mostrarMensaje" class="alert alert-warning alert-dismissible fade show"
+                                    role="alert">
+                                    <strong *ngIf="estado=='ALTO'">ALTO</strong>
+                                    <strong *ngIf="estado=='MEDIO'">MEDIO</strong>
+                                    <strong *ngIf="estado=='BAJO'">BAJO</strong>
+                                    <strong *ngIf="estado=='ERROR'">Advertencia, el Rango superior no puede ser menor o igual 
+                                        al rango inferior</strong>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-md-4 text-center">
+                                        <div class="md-form mb-0">
+                                            <label for="precio">Ingrese el precio</label>
+                                            <input id="precio" class="form-control" type="number"
+                                                formControlName="precio" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row justify-content-center">
+                                    <div class="col-md-4 text-center">
+                                        <button class="btn btn-primary" type="submit">Validar</button>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row justify-content-center">
+                                    <div class="col-md-12 text-center">
+                                        <h4>Parametros para el cálculo</h4>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row justify-content-center">
+                                    <div class="col-md-4">
+                                        <div class="md-form mb-0">
+                                            <label for="rangoSuperior">Rango superior</label>
+                                            <input id="rangoSuperior" class="form-control" type="number"
+                                                formControlName="rangoSuperior">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="md-form mb-0">
+                                            <label for="rangoInferior">Rango inferior</label>
+                                            <input id="rangoInferior" class="form-control" type="number"
+                                                formControlName="rangoInferior">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <br>
+                                <div class="row justify-content-center">
+                                    <div class="col-md-12 text-muted">
+                                        <ol>
+                                            <li><small>Un precio es "ALTO" cuando el precio es mayor o igual al Rango superior.</small></li>
+                                            <li><small>Un precio es "BAJO" cuando el precio es menor al Rango inferior.</small></li>
+                                            <li><small>Un precio es "MEDIO" cuando el precio es menor al Rango superior y mayor o igual al Rango inferior.</small></li>
+                                        </ol>
+                                    </div>
+
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
