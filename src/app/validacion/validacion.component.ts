@@ -10,10 +10,14 @@ export class ValidacionComponent implements OnInit {
 
   form: FormGroup;
   estado:string='';
+  estadoMostrar:string='';
   mostrarMensaje:boolean=false;
 
   rangoSuperior:string;
   rangoInferior:string;
+  categoria1:string;
+  categoria2:string;
+  categoria3:string;
 
   constructor() { 
     this.rangoInferior='2000';
@@ -28,7 +32,10 @@ export class ValidacionComponent implements OnInit {
     this.form = new FormGroup({
       rangoSuperior: new FormControl(this.rangoSuperior, [Validators.required]),
       rangoInferior: new FormControl(this.rangoInferior, [Validators.required]),
-      precio: new FormControl('', [Validators.required])
+      precio: new FormControl('', [Validators.required]),
+      categoria1: new FormControl('ALTO', [Validators.required]),
+      categoria2: new FormControl('MEDIO', [Validators.required]),
+      categoria3: new FormControl('BAJO', [Validators.required])
     });
 
     this.form.valueChanges
@@ -59,10 +66,13 @@ export class ValidacionComponent implements OnInit {
       this.estado='ERROR';
     }else{
       if(value.precio>=value.rangoSuperior){
+        this.estadoMostrar=value.categoria1;
         this.estado='ALTO';
        }else if(value.precio<value.rangoInferior){
+        this.estadoMostrar=value.categoria3;
          this.estado='BAJO';
        }else{
+        this.estadoMostrar=value.categoria2;
          this.estado='MEDIO';
        }
     }

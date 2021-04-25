@@ -14,11 +14,12 @@
 
                                 <div *ngIf="mostrarMensaje" class="alert alert-warning alert-dismissible fade show"
                                     role="alert">
-                                    <strong *ngIf="estado=='ALTO'">ALTO</strong>
-                                    <strong *ngIf="estado=='MEDIO'">MEDIO</strong>
-                                    <strong *ngIf="estado=='BAJO'">BAJO</strong>
-                                    <strong *ngIf="estado=='ESCERO'">Los parametros o el precio no pueden ser menor a cero.</strong>
-                                    <strong *ngIf="estado=='ERROR'">El Rango superior no puede ser menor o igual 
+                                    <strong *ngIf="estado=='ALTO'">{{estadoMostrar}}</strong>
+                                    <strong *ngIf="estado=='MEDIO'">{{estadoMostrar}}</strong>
+                                    <strong *ngIf="estado=='BAJO'">{{estadoMostrar}}</strong>
+                                    <strong *ngIf="estado=='ESCERO'">Los parametros o el precio no pueden ser menor a
+                                        cero.</strong>
+                                    <strong *ngIf="estado=='ERROR'">El Rango superior no puede ser menor o igual
                                         al rango inferior</strong>
                                 </div>
                                 <div class="row justify-content-center">
@@ -64,9 +65,23 @@
                                 <div class="row justify-content-center">
                                     <div class="col-md-12 text-muted">
                                         <ol>
-                                            <li><small>Un precio es "ALTO" cuando el precio es mayor o igual al Rango superior.</small></li>
-                                            <li><small>Un precio es "BAJO" cuando el precio es menor al Rango inferior.</small></li>
-                                            <li><small>Un precio es "MEDIO" cuando el precio es menor al Rango superior y mayor o igual al Rango inferior.</small></li>
+                                            <li>
+
+                                                <small>Un precio es <input id="alto" type="text"
+                                                        formControlName="categoria1" style="width : 100px;">
+                                                    cuando el precio es mayor o igual al Rango superior.</small>
+
+                                            </li>
+                                            <li>
+                                                <small>Un precio es <input id="bajo" type="text"
+                                                        formControlName="categoria3" style="width : 100px;"> cuando el precio es menor al Rango
+                                                    inferior.</small>
+                                            </li>
+                                            <li>
+                                                <small>Un precio es <input id="medio" type="text"
+                                                        formControlName="categoria2" style="width : 100px;"> cuando el precio es menor al Rango
+                                                    superior y mayor o igual al Rango inferior.</small>
+                                            </li>
                                         </ol>
                                     </div>
 
@@ -80,4 +95,3 @@
         </div>
     </div>
 </div>
-
